@@ -1,0 +1,30 @@
+/* kolr theme */
+
+.cm-s-kolr {background: none; color: rgb(60,50,50);}
+.cm-s-kolr div.CodeMirror-selected {background: rgb(100,100,100) !important;}
+.cm-s-kolr .CodeMirror-gutter {background: rgb(230,230,230); border-right: 0px;}
+.cm-s-kolr .CodeMirror-gutter-text {color: rgb(200,200,200);}
+.cm-s-kolr .CodeMirror-cursor {border-left: 2px solid rgb(54,47,45) !important;}
+
+.cm-s-kolr span.cm-comment {color: rgba(51,55,69,0.35); font-size: smaller; font-family: 'LektonItalic', Consolas, monospace !important;}
+.cm-s-kolr span.cm-atom {color: rgb(181,192,175);}
+.cm-s-kolr span.cm-number {color: rgb(236,157,191);}
+
+.cm-s-kolr span.cm-property {color: rgba(119,196,211,1);}
+.cm-s-kolr span.cm-attribute {color: rgba(119,196,211,1);}
+.cm-s-kolr span.cm-keyword {color: #f92672; font-family: 'LektonItalic', Consolas, monospace !important;}
+.cm-s-kolr span.cm-string {color: rgba(51,55,69,0.45);}
+.cm-s-kolr span.cm-string-2 {color: rgba(54,47,45,0.65);}
+
+.cm-s-kolr span.cm-variable {color: rgba(148,183,62,0.55); font-family: 'LektonItalic', Consolas, monospace !important;}
+.cm-s-kolr span.cm-variable-2 {color: rgba(148,183,62,0.85); font-family: 'LektonItalic', Consolas, monospace !important;}
+.cm-s-kolr span.cm-def {color: #fd971f;}
+.cm-s-kolr span.cm-error {background: #f92672; color: #f8f8f0; font-family: 'LektonItalic', Consolas, monospace !important;}
+.cm-s-kolr span.cm-bracket {color: rgb(240,240,240);}
+.cm-s-kolr span.cm-tag {color: rgba(148,183,62,1);}
+.cm-s-kolr span.cm-link {color: rgb(181,192,175);}
+
+.cm-s-kolr .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

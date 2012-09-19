@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>kodr</title>
+
+<!-- CSS -->
+	<!-- FONTS -->
+		<!-- Bariol font imports (incl italic) -->
+			<!-- 'BariolRegular' 'BariolThin' 'BariolBold' 'BariolLight' -->
+			<link rel="stylesheet" type="text/css" href="fnt/bariol/_web/stylesheet.css">
+		<!-- Lekton font imports (incl italic) -->
+			<!-- 'LektonRegular' 'LektonItalic' 'LektonBold' 'BariolLight' -->
+			<link rel="stylesheet" type="text/css" href="fnt/lekton/_web/stylesheet.css">
+		<!-- Susa font import -->
+			<!-- Heavy 'SusaHeavy' -->
+			<link rel="stylesheet" type="text/css" href="fnt/susa/heavy/stylesheet.css">
+		<!-- HEIROGLYPHS -->
+			<link rel="stylesheet" href="css/heiroglyphs.css">
+		
+	<!-- BOOTSTRAP CSS -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<!-- CORE.LESS -->
+		<link rel="stylesheet/less" type="text/css" href="css/core.ios.less">
+	<!-- {LESS} script -->
+		<script src="js/less-1.3.0.min.js" type="text/javascript"></script>
+	<!-- UIKit https://github.com/visionmedia/uikit -->
+		<link rel="stylesheet" type="text/css" href="css/ui.css">
+
+	<!-- CodeMirror additions -->
+		<!-- <link rel="stylesheet" href="code/lib/codemirror.css"> -->
+		<script src="code/lib/codemirror.js"></script>
+		<script src="code/mode/css/css.js"></script>
+		<script src="code/mode/less/less.js"></script>
+		<script src="code/mode/javascript/javascript.js"></script>
+		<script src="code/mode/xml/xml.js"></script>
+		<script src="code/mode/htmlmixed/htmlmixed.js"></script>
+		<link rel="stylesheet" href="code/theme/kolr.css">
+
+	<style type="text/css">
+		/* INLINE STYLES GO HERE */
+
+	</style>
+
+<!-- FAVICON -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+
+<!-- MOBILE STUFF -->
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<!-- Apple Device specific -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+	<!-- Apple Device Homescreen icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" 	href="img/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" 	href="img/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" 		href="img/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" 					href="img/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body onload="onLoad()">
+
+<ul id="notifications"></ul>
+
+<div id="navbar" class="">
+		<div id="navbarTopGroup">
+		<div id="btnLogo" class="navbarItem logoType brand touchable">k</div>
+		<div id="btnSaveFile" class="navbarItem touchable iconSmall">[</div>
+		<div id="btnPutFile" class="navbarItem touchable iconSmall">v</div>
+		<div class="navbarSpacer"></div>
+		<div id="btnGetFile" class="navbarItem touchable iconSmall">z</div>
+		<div id="btnNewFile" class="navbarItem touchable iconSmall">c</div>
+	</div>
+	<div id="navbarBottomGroup">
+		<div id="btnSettings" class="navbarItem touchable iconSmall">o</div>
+	</div>
+</div>  <!-- // right navbar -->
+
+<div data-role="page" id="begin" data-url="begin" tabindex="0" class="ui-page">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<h1>Start koding</h1>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div id="btn1" class="span3 fileItem touchable">Create Files Table</div>
+			<div id="btn2" class="span3 fileItem touchable">Drop Files Table</div>
+			<div id="btn3" class="span3 fileItem touchable">Populate Files Table</div>
+			<div id="btn4" class="span3 fileItem touchable">Read Files Table</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<div id="loadCodeBtn" class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">get new file</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="getFileIcon" class="heiro-down-open-1 iconLarge"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">retrieve a new file via HTTP/HTTPS</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">new local file</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="getFileIcon" class="heiro-right-open-2 iconLarge"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">create a new file from our templates</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">settings</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="getFileIcon" class="heiro-cog-1 iconLarge"></div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">open the settings control panel</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12 label">LOCAL FILES<span class="pull-right"><span class="hidden-phone">TOUCH TO REFRESH &nbsp;&nbsp;&nbsp; </span><span class="touchable iconTiny"></span></span></div>
+		</div>
+		<div id="localFilesContainer" class="row-fluid">
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">index.html</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="HTMLbadge" class="ftBadge">HTML</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">http://ppty.me/index.html</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">ios.less</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="LESSbadge" class="ftBadge">{less}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">http://ppty.me/css/ios.less</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">core.js</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="JSbadge" class="ftBadge">JS</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">http://ppty.me/js/core.js</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">stylesheet.css</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="CSSbadge" class="ftBadge">CSS</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">http://ppty.me/fnt/bariol/_web/stylesheet.css</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">index.html</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="HTMLbadge" class="ftBadge">HTML</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell noHome">[no web home]</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">index.with.a.ridiculously.long.name.html</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="HTMLbadge" class="ftBadge">HTML</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">http://ppty.me/index.with.a.ridiculously.long.name.html</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">index.html</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="HTMLbadge" class="ftBadge">HTML</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell">http://ppty.me/index.html</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="fileItem touchable">
+					<table>
+						<tr>
+							<td class="fnameCell">index.html</td>
+							<td rowspan="2" class="badgeCell">
+								<div id="HTMLbadge" class="ftBadge">HTML</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="urlCell noHome">[no web home]</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12 footer">
+				&copy; 2012 NO2DESIGNCO. 
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-role="page" id="editor" data-url="editor" tabindex="0" class="ui-page hidden">
+	<form><textarea id="code" name="code" style="display:none;"><script>
+	$( '#editor' ).live( 'pageshow',function(event, ui){
+		var cmEditor = CodeMirror.fromTextArea(document.getElementById("code"), {
+			mode: "htmlmixed",
+			lineNumbers: true,
+			fixedGutter: false,
+			indentWithTabs: true,
+			theme: "kolr"
+		});
+		$( "#charCount" ).innerHTML = cmEditor.lineCount();
+	});
+
+	$( "#loadCodeBtn" ).click( function() {
+		$.mobile.changePage("#editor");
+	});
+</script>
+	</textarea></form>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="charCount" class="span4">test</div>
+			<div id="lineCount" class="span4">test2</div>
+			<div id="fileName" class="span4">test3</div>
+		</div>
+		<div class="row-fluid">
+			<div id="charCount2" class="span4">test</div>
+			<div id="lineCount2" class="span4">test2</div>
+			<div id="fileName2" class="span4">test3</div>
+		</div>
+	</div>	
+</div> <!-- // editor frame -->
+
+
+
+<!-- JS ================================================================================= -->
+	<!-- jQuery 1.7.2 -->
+		<script src="js/jquery-1.8.1.min.js" type="text/javascript"></script>
+	<!-- BOOTSTRAP -->
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- QuoJS v2.0.3 -->
+		<script src="js/QuoJS.js" type="text/javascript"></script>
+	<!-- Cordova PhoneGap 2.0.0 -->
+		<script src="js/cordova-2.0.0.js" type="text/javascript"></script>
+	<!-- UIKit https://github.com/visionmedia/uikit -->
+		<script src="js/ui.js" type="text/javascript"></script>
+	<!-- CORE -->
+		<script src="js/core.js" type="text/javascript"></script>
+	<!-- INLINE -->
+		<script type="text/javascript" language="javascript">
+		// Call onDeviceReady when Cordova is loaded.
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+
+		// GENERIC Error handlers
+		function failure(error) {
+			console.log(error.code);
+		}
+		function failureWithDB(tx, error) {
+			console.log("DB_ERROR: " + error.code);
+		}
+		function failureWithDB(tx) {
+			console.log("DB_SUCCESS: " + tx);
+		}
+
+		function createFilesTbl() {
+			console.log("touched");
+			// create 'files' table in the DB
+			console.log("DB_ACTION: About to create 'files' table if not exists already.")
+			tx.executeSql('DROP TABLE IF EXISTS files');
+			tx.executeSql('CREATE TABLE IF NOT EXISTS files (id unique, data)');
+			tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+			tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+		}
+
+		function dropFilesTbl() {
+			console.log("touched");
+			console.log("DB_ACTION: About to drop 'files' table.")
+			var db = window.openDatabase("kodr", "1.0", "kodr database", 200000);
+			db.transaction( function (tx) {
+				tx.executeSql('DROP TABLE IF EXISTS DEMO');
+			}, failureWithDB, function () {
+				console.log("DB_ACTION: 'files' table dropped.");
+			});
+			
+		}
+
+		function popFilesTbl() {
+			
+			loadLocalFiles();
+			ui.notify('Populated the "files" table.')
+				.closable()
+				.hide(2000)
+				.effect('slide');
+			
+		}
+		function readFilesTbl() {
+			
+			ui.dialog('Read Files Touched')
+				.closable()
+				.overlay()
+				.show();
+			
+		}
+
+
+		function loadLocalFiles() {
+
+			function onFileSystemAccessSuccess(fileSys) {
+				//console.log("Filesystem name: " + fileSys.name);
+				//console.log("Root folder name: " + fileSys.root.name);
+				//console.log("Root folder path: " + fileSys.root.fullPath);
+				// Create a directory reader object
+				var directoryReader = fileSys.root.createReader();
+				// Get a list of all the entries in the directory
+				directoryReader.readEntries(function (entries) {
+					var i;
+					for (i=0; i<entries.length; i++) {
+						//console.log("DIR ENTRY " + i + ": " + entries[i].name);
+						if (entries[i].isFile == true) {
+							entries[i].file(function (fileObj) {
+								var fName = fileObj.name;
+								var fType = fName.substring(fName.lastIndexOf('.')+1).toUpperCase();
+								var fLMDate = new Date(fileObj.lastModifiedDate);
+								var fSize = fileObj.size;
+								console.log(fName +" | "+ fType +" | "+ fLMDate +" | "+ fSize);
+
+							},failure);
+						}
+					}
+				}, failure);
+
+			}
+
+
+			// request the persistent file system
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemAccessSuccess, failure);
+		}
+
+
+
+		// Cordova is loaded and it is now safe to make calls Cordova methods
+		//
+		function onDeviceReady() {
+			// Now safe to use the Cordova API
+			var devicePlatform = device.platform;
+			
+			// Event listener to determine change (horizontal/portrait)
+			document.addEventListener("orientationChanged", updateOrientation); 
+			
+			function bruteForceRepaint() {
+				var ss = document.styleSheets[0];
+				try { ss.addRule('.xxxxxx', 'position: relative'); }
+				catch(e) {}
+			}
+
+			function updateOrientation(e) {
+				switch (e.orientation) { 
+					case 0:
+					// portrait
+					bruteForceRepaint();
+					break;
+
+					case -90:
+					// landscape
+					bruteForceRepaint();
+					break;
+
+					case 90:
+					// landscape
+					bruteForceRepaint();
+					break;
+
+					default:
+					// portrait
+					bruteForceRepaint();
+					break;
+				}
+			}
+
+			var db = window.openDatabase("kodr", "1.0", "kodr database", 200000);
+			db.transaction( createFilesTbl, failureWithDB, successDB );
+
+			loadLocalFiles();
+
+		}
+
+		var cmEditor = CodeMirror.fromTextArea(document.getElementById("code"), {
+			mode: "htmlmixed",
+			lineNumbers: true,
+			fixedGutter: false,
+			indentWithTabs: true,
+			lineWrapping: true,
+			indentUnit: 1,
+			tabSize: 2,
+			theme: "kolr"
+		});
+		
+		$$( "#btnLogo" ).tap( function() {
+			$('#begin').toggleClass('hidden');
+			$('#editor').toggleClass('hidden');
+		});
+
+		$$('#btn1').tap( function() {
+			createFilesTbl();
+			} );
+		$$('#btn2').tap( function() {
+			dropFilesTbl();
+			} );
+		$$('#btn3').tap( function() {
+			//loadLocalFiles();
+			popFilesTbl();
+			} );
+		$$('#btn4').tap( function() {
+			readFilesTbl();
+			} );
+		
+
+		$$( "#loadCodeBtn" ).tap( function() {
+			$('#begin').toggleClass('hidden');
+			$('#editor').toggleClass('hidden');
+			cmEditor.refresh();
+		});
+		
+		$$( 'body' ).swipeLeft( function(){
+			$( '#navbar' ).css('right','0px');
+		} );
+		$$( 'body' ).swipeRight( function(){
+			if ( $('#navbar').css('right') == "0px" ) {
+				$( '#navbar' ).css('right','-50px');
+			}
+		} );
+
+		</script> 
+
+
+</body>
+</html>

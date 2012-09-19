@@ -1,0 +1,568 @@
+/* written in {LESS} (http://lesscss.org/) CSS Stylesheet - CORE.LESS */
+
+/* Define theme colours "CIVIL" */
+	@kolr1: #362F2D;	/* DarkerGray rgb(54,47,45) */
+	@kolr2:	#4C4C4C;	/* DarkGray rgb(76,76,76) */
+	@kolr3: #94B73E;	/* Green rgb(148,183,62) */
+	@kolr4: #B5C0AF;	/* MedGreen-Gray rgb(181,192,175) */
+	@kolr5: #FAFDF2;	/* LighterGray rgb(250,253,242) */
+	@kolr6: #77C4D3;	/* LightBlue rgb(119,196,211) */
+	@kolr7: #333745;	/* DarkGrayBlue rgb(51,55,69) */
+	@kolr8: #E095B5;	/* LightPink rgb(236,157,191) */
+
+body {
+	font-family: 'BariolLight','Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size: 15px;
+	background-color: 	rgb(0,0,0);
+	background-repeat:	no-repeat;
+	background-attachment:	fixed;
+	background-position:	left top;
+	cursor: default;
+	-webkit-background-size:	cover;
+}
+.phoneBG {
+	background-image:	url('../img/bg/bg_960.png');
+}
+.tabletBG {
+	background-image:	url('../img/bg/bg_2008.png');
+}
+
+/*.panel {
+	position: fixed;
+	top:	0px;
+	left:	0px;
+	bottom:	0px;
+	right:	50px;
+	overflow-x: scroll;
+	overflow-y: scroll;
+}*/
+
+.hidden {
+	display: none;
+}
+
+h1 {
+	font-family: 'BariolThin','Helvetica Neue Thin',Helvetica,Arial,sans-serif;
+	font-weight: normal !important;
+	font-size: 40pt;
+	color: @kolr2;
+}
+#begin h1 {
+	margin-top: 35px;
+	margin-bottom: 30px;
+	color: @kolr3;
+}
+
+.ui-page {
+	position: absolute;
+	right:	0px;
+	left:	0px;
+	top: 	0px;
+	bottom:	0px;
+	width: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: 	rgb(240,240,240);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#begin {
+	z-index: 100;
+}
+#editor {
+	z-index: 1;
+}
+
+div.row-fluid div.span6:nth-child(odd) {
+	margin-left: 0;
+}
+div.row-fluid div.span4:nth-child(3n+1) {
+	margin-left: 0;
+}
+
+
+
+
+
+a {
+	font-family: 'BariolRegular';
+	color: @kolr3;
+	-webkit-user-select: none;
+}
+a:hover {
+	color: @kolr3;
+}
+div.touchable a {
+	font-family: 'BariolLight';
+	-webkit-user-select: none;
+}
+div.touchable a:active {
+	background-color: @kolr3;
+}
+
+.touched {
+	background-color: rgba(148,183,62,0.25);
+}
+
+.touchable {
+	cursor: pointer;
+	-webkit-user-select: none;
+}
+
+.navbarItem {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-decoration: none;
+
+}
+.navbarSpacer {
+	position: absolute;
+	width: 100%;
+	height: 25px;
+}
+
+.logoType {
+	font-family: 'SusaHeavy';
+	font-weight: normal !important;
+	color: @kolr3 !important;
+}
+#btnLogo.logoType {
+	font-size: 1.8em;
+	text-outline: 2px 0px #fff;
+}
+
+/* === NOTIFICATIONS RESTYLE FROM UI.CSS ========= */
+#notifications {
+	z-index: 999 !important;
+}
+.notification {
+	min-width: 			100px !important;
+	color: 				#fff;
+	font-family: 		'BariolBold';
+	font-weight: 		normal;
+	/*text-shadow: 		0 0 2px rgba(0, 0, 0, 0.25) !important;*/
+	border: 1px solid #EEE !important;
+	background: white !important;
+	box-shadow: 0 1px 8px 0 black !important;
+}
+.notification .close {
+	right: 3px !important;
+	width: 15px !important;
+	height: 15px !important;
+}
+/* === END NOTIFICATIONS RESTYLE FROM UI.CSS ====== */
+/* === OVERLAY RESTYLE FROM UI.CSS ================ */
+#overlay {
+	z-index: 990 !important;
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%,rgba(0,0,0,0.38)), color-stop(12%,rgba(0,0,0,0.38)), color-stop(100%,rgba(0,0,0,0.79))) !important; /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.38) 1%,rgba(0,0,0,0.38) 12%,rgba(0,0,0,0.79) 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: radial-gradient(ellipse at center, rgba(0,0,0,0.38) 1%,rgba(0,0,0,0.38) 12%,rgba(0,0,0,0.79) 100%) !important; 
+}
+#dialog {
+	z-index:	998 !important;
+	max-width: 80% !important;
+	min-width: 70% !important;
+	-webkit-border-radus: 0px !important;
+	border-radius: 0px !important;
+
+}
+/* === END OVERLAY RESTYLE FROM UI.CSS ============ */
+
+#navbar {
+	position: fixed;
+	z-index: 900;
+	right: -50px;
+	top: 0px;
+	bottom: 0px;
+	width: 50px;
+	background-color: rgba(255,255,255,0.8);
+	text-align: center;
+	-webkit-box-shadow: -5px 0px 20px rgba(200,200,200,0.75);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-webkit-transition: all 0.5s ease;
+}
+#navbar-underlay {
+	position: fixed;
+	z-index: 899;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 49px;
+	background-color: #000;
+}
+#navbarBottomGroup {
+	position: absolute;
+	bottom:0px;
+	left:0px;
+}
+
+div.label {
+	margin-top: 	25px;
+	margin-bottom: 	1px;
+	min-height: 	10px !important;
+	line-height: 	15px;
+	font-family: 	'BariolBold';
+	font-weight: 	normal;
+	text-shadow: 	0 0 2px rgba(0, 0, 0, 0.25) !important;
+	padding: 		10px;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.fileItem {
+	padding: 20px;
+	margin-top:5px;
+	border: 1px solid rgba(200,200,200,0.2);
+	background-color: rgb(250,250,250);
+	table {
+		border: none;
+		width: 100%;
+		table-layout: fixed;
+	}
+	.fnameCell {
+		font-size: 22px;
+		line-height: 26px;
+		color: rgba(0,0,0,0.9);
+		width: 85%;
+		max-width: 85% !important;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	.badgeCell {
+		text-align: right;
+		width: 15%;
+		min-width: 15% !important;
+	}
+	.urlCell {
+		font-size: 14px;
+		color: rgba(0,0,0,0.5);
+		width: 85%;
+		max-width: 85% !important;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+
+	}
+	.noHome {
+		color: rgba(0,0,0,0.25);
+	}
+}
+.funcItem {
+	padding: 15px;
+	margin-top:5px;
+	border: 1px solid rgba(200,200,200,0.2);
+	background-color: rgb(250,250,250);
+	table {
+		border: none;
+		width: 100%;
+		table-layout: fixed;
+	}
+	.fnameCell {
+		font-size: 22px;
+		line-height: 26px;
+		color: rgba(0,0,0,0.9);
+		width: 75%;
+		max-width: 75% !important;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	.badgeCell {
+		text-align: right;
+		width: 25%;
+		min-width: 25% !important;
+	}
+	.urlCell {
+		font-size: 14px;
+		color: rgba(0,0,0,0.5);
+		width: 75%;
+		max-width: 75% !important;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+
+	}
+}
+
+.footer {
+	margin-top: 	50px;
+	margin-bottom: 	50px;
+	margin-right: 	20px !important;
+	height: 		50px;
+	font: 		15px 'BariolLight';
+	color: 		rgba(0, 0, 0, 0.5);
+	text-align: 	right;
+}
+
+
+/* == custom codemirror.css ================= */
+
+	.CodeMirror {
+		font-size: 15px;
+		line-height: 20px !important;
+		font-family: 'LektonRegular', Consolas, monospace !important;
+		position: relative;
+		padding-right: 10px;
+	}
+	.CodeMirror-scroll {
+		height: auto !important;
+		width: auto !important;
+		/*overflow-y: hidden;
+		overflow-x: auto;*/
+		outline: none;
+		overflow: visible;
+	}
+
+	/* Vertical scrollbar */
+	.CodeMirror-scrollbar {
+	  float: right;
+	  overflow-x: hidden;
+	  overflow-y: scroll;
+	  margin-left: -1px;
+	}
+	.CodeMirror-scrollbar-inner {
+	  /* This needs to have a nonzero width in order for the scrollbar to appear
+	     in Firefox and IE9. */
+	  width: 1px;
+	}
+	.CodeMirror-scrollbar.cm-sb-overlap {
+	  /* Ensure that the scrollbar appears in Lion, and that it overlaps the content
+	     rather than sitting to the right of it. */
+	  position: absolute;
+	  z-index: 2;
+	  float: none;
+	  right: 0;
+	  min-width: 12px;
+	}
+	.CodeMirror-scrollbar.cm-sb-nonoverlap {
+	  min-width: 12px;
+	}
+	.CodeMirror-scrollbar.cm-sb-ie7 {
+	  min-width: 18px;
+	}
+
+	.CodeMirror-gutter {
+	  position: absolute; left: 0; top: 0;
+	  z-index: 10;
+	  background-color: #f7f7f7;
+	  border-right: 1px solid #eee;
+	  min-width: 2em;
+	  height: 100%;
+	}
+	.CodeMirror-gutter-text {
+	  color: #aaa;
+	  text-align: right;
+	  padding: .4em .2em .4em .4em;
+	  white-space: pre !important;
+	}
+	.CodeMirror-lines {
+	  padding: .4em;
+	  white-space: pre;
+	  cursor: text;
+	}
+	.CodeMirror-lines * {
+	  /* Necessary for throw-scrolling to decelerate properly on Safari. */
+	  pointer-events: none;
+	}
+
+	.CodeMirror pre {
+	  -webkit-border-radius: 0;
+	  border-radius: 0;
+	  border-width: 0; margin: 0; padding: 0; background: transparent;
+	  font-family: inherit;
+	  font-size: inherit;
+	  padding: 0; margin: 0;
+	  white-space: pre;
+	  word-wrap: normal;
+	  line-height: inherit;
+	  color: inherit;
+	}
+
+	.CodeMirror-wrap pre {
+	  word-wrap: break-word;
+	  white-space: pre-wrap;
+	  word-break: normal;
+	}
+	.CodeMirror-wrap .CodeMirror-scroll {
+	  /* overflow-x: hidden; */
+	} 
+
+	.CodeMirror textarea {
+	  outline: none !important;
+	}
+
+	.CodeMirror pre.CodeMirror-cursor {
+	  z-index: 10;
+	  position: absolute;
+	  visibility: hidden;
+	  border-left: 1px solid black;
+	  border-right: none;
+	  width: 0;
+	}
+	.cm-keymap-fat-cursor pre.CodeMirror-cursor {
+	  width: auto;
+	  border: 0;
+	  background: transparent;
+	  background: rgba(0, 200, 0, .4);
+	}
+	.CodeMirror pre.CodeMirror-cursor.CodeMirror-overwrite {}
+	.CodeMirror-focused pre.CodeMirror-cursor {
+	  visibility: visible;
+	}
+
+	div.CodeMirror-selected { background: #d9d9d9; }
+	.CodeMirror-focused div.CodeMirror-selected { background: #d7d4f0; }
+
+	.CodeMirror-searching {
+	  background: #ffa;
+	  background: rgba(255, 255, 0, .4);
+	}
+
+	/* Default theme */
+
+	.cm-s-default span.cm-keyword {color: #708;}
+	.cm-s-default span.cm-atom {color: #219;}
+	.cm-s-default span.cm-number {color: #164;}
+	.cm-s-default span.cm-def {color: #00f;}
+	.cm-s-default span.cm-variable {color: black;}
+	.cm-s-default span.cm-variable-2 {color: #05a;}
+	.cm-s-default span.cm-variable-3 {color: #085;}
+	.cm-s-default span.cm-property {color: black;}
+	.cm-s-default span.cm-operator {color: black;}
+	.cm-s-default span.cm-comment {color: #a50;}
+	.cm-s-default span.cm-string {color: #a11;}
+	.cm-s-default span.cm-string-2 {color: #f50;}
+	.cm-s-default span.cm-meta {color: #555;}
+	.cm-s-default span.cm-error {color: #f00;}
+	.cm-s-default span.cm-qualifier {color: #555;}
+	.cm-s-default span.cm-builtin {color: #30a;}
+	.cm-s-default span.cm-bracket {color: #cc7;}
+	.cm-s-default span.cm-tag {color: #170;}
+	.cm-s-default span.cm-attribute {color: #00c;}
+	.cm-s-default span.cm-header {color: blue;}
+	.cm-s-default span.cm-quote {color: #090;}
+	.cm-s-default span.cm-hr {color: #999;}
+	.cm-s-default span.cm-link {color: #00c;}
+
+	span.cm-header, span.cm-strong {font-weight: bold;}
+	span.cm-em {font-style: italic;}
+	span.cm-emstrong {font-style: italic; font-weight: bold;}
+	span.cm-link {text-decoration: underline;}
+
+	div.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}
+	div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
+
+
+/* == END custom codemirror.css ============= */
+
+
+/* Badge definitions - HTML, XML, CSS, {less}, JSd */
+.ftBadge {
+	position: relative;
+	width: 34px;
+	height: 18px;
+	font-family: 'BariolBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	/* letter-spacing: -0.1em; */
+	font-size: 12px;
+	font-style: normal;
+	line-height: 18px;
+	text-align: center;
+	color: rgba(250,250,250,0.9);
+	text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.05, rgb(122,119,135)),
+		color-stop(0.7, rgb(224,224,224))
+	);
+	border-radius: 3px;
+	margin:10px;
+	border: 1px solid rgba(25,25,25,0.3);
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+#HTMLbadge {
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.05, rgb(179,64,36)),
+		color-stop(0.7, rgb(240,101,41))
+	);
+	/* rgb(227,76,38) */
+}
+#JSbadge {
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.05, rgb(56,92,56)),
+		color-stop(0.7, rgb(137,224,137))
+	);
+}
+#LESSbadge {
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.05, rgb(23,46,79)),
+		color-stop(0.7, rgb(45,82,136))
+	);
+}
+#CSSbadge {
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.05, rgb(35,89,125)),
+		color-stop(0.7, rgb(113,178,222))
+	);
+	/* rgb(59,154,219) */
+}
+
+.iconLarge {
+	font-family: 'Heiroglyphs';
+	font-size: 50px;
+	color: @kolr2;
+	text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+	/* old text-shadow
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.iconMedium {
+	font-family: 'Heiroglyphs';
+	font-size: 35px;
+	color: @kolr2;
+	text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+	/* old text-shadow
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.iconSmall {
+	font-family: 'Heiroglyphs';
+	font-size: 25px;
+	color: @kolr2;
+	text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+	/* old text-shadow
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.iconTiny {
+	font-family: 'Heiroglyphs';
+	font-size: 15px;
+	color: @kolr2;
+	text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+	/* old text-shadow
+	text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+	padding:5px;
+}
+
+@media (max-width:767px) {
+	#begin h1 {
+		margin-left: 20px;
+		font-size: 36pt;
+	}
+
+}
